@@ -1,4 +1,5 @@
-use judiciariodb;
+// select the database (avoids 'use' keyword errors in some JS environments)
+db = db.getSiblingDB("judiciariodb");
 
 // o mongo n tem um sistema próprio de chaves incrementadas(eles utilizam o objectId como forma de identificação padrão), ou seja,
 // é necessária a função e um "documento" para registrar os ids dos documentos dos N tipos
@@ -53,7 +54,26 @@ db.usuarios.insertMany([
         nome: "Gabriel Brandt",
         tipo: "Parte",
         cpf: "123.456.789-00"
-    }
+    },
+    {
+        _id: getProximoId("usuarioId"), 
+        nome: "Arthur Sean",
+        tipo: "Parte",
+        cpf: "987.654.321-00"
+    },
+    {
+        _id: getProximoId("usuarioId"), 
+        nome: "Isabela Possídio",
+        tipo: "Parte",
+        cpf: "676.676.676-67"
+    },
+    {
+        _id: getProximoId("usuarioId"), // Será o ID 8
+        nome: "Helena Carreiro",
+        tipo: "Advogado",
+        oab: "PE99999",
+        tags: ["família", "sucessões"]
+    }   
 ]);
 
 db.processos.insertMany([
@@ -83,7 +103,27 @@ db.processos.insertMany([
             { id: 2, status: "ativo" }
         ],
         tags_processo: ["pequenas causas"]
-    }
+    },
+    {
+        _id: getProximoId("processoId"), // Será o ID 3
+        numero: "0005555-44.2026.8.17.0001",
+        status: "Em Andamento",
+        data_abertura: new Date("2026-06-01T10:00:00Z"),
+        valor_causa: 750000,
+        juiz_id: 1,
+        partes: [7, 4], // Isabela Possídio (7) e Betuca Construções (4)
+        advogados: [
+            { id: 8, status: "ativo" }, // Helena defendendo a Isabela
+            { id: 2, status: "ativo" }  // Felipe defendendo a Betuca Construções
+        ],
+        tags_processo: ["segredo de justiça", "divórcio", "partilha de bens"],
+        
+        // CAMPOS EXCLUSIVOS: Perfeito para demonstrar o esquema flexível (Schemaless)
+        detalhes_familia: {
+            regime_bens: "Comunhão Parcial",
+            possui_filhos_menores: false,
+            pensao_pleiteada: 0
+    }}
 ]);
 
 db.documentos.insertMany([
@@ -106,6 +146,27 @@ db.documentos.insertMany([
         processo_id: 2, 
         tipo: "Acordo",
         conteudo: "As partes entraram em acordo amigável, encerrando a lide.",
+        confidencial: false
+    },
+    {
+        _id: getProximoId("documentoId"), // ID 4
+        processo_id: 3,
+        tipo: "Decisão Interlocutória",
+        conteudo: "Defiro o pedido liminar de arrolamento de bens para evitar a dilapidação do patrimônio até a partilha.",
+        confidencial: true
+    },
+    {
+        _id: getProximoId("documentoId"), // ID 5
+        processo_id: 3,
+        tipo: "Contestação",
+        conteudo: "A parte ré alega que os bens listados foram adquiridos antes da constância da união, impugnando o pedido de partilha integral.",
+        confidencial: true
+    },
+    {
+        _id: getProximoId("documentoId"), // ID 6
+        processo_id: 1,
+        tipo: "Despacho",
+        conteudo: "Mantenha-se os autos suspensos aguardando a manifestação do perito engenheiro.",
         confidencial: false
     }
 ]);
