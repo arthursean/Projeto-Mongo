@@ -19,6 +19,9 @@ function getProximoId(nomeDaSequencia) {
 }
 // a criação de "tables" também é criada a partir da inserção do documento em si, já que é um modelo não relacional, não possuindo a existência
 // do conceito de table propriamente dito
+
+// ============================ USUÁRIOS ================================
+
 db.usuarios.insertMany([
     {
         _id: getProximoId("usuarioId"), 
@@ -75,43 +78,188 @@ db.usuarios.insertMany([
         tags: ["família", "sucessões"]
     },
     {
-    _id: getProximoId("usuarioId"),
-    nome: "Erika Hilton",
-    tipo: "Advogado",
-    oab: "PE11223",
-    tags: ["direitos humanos", "constitucional", "família"]
-},
-{
-    _id: getProximoId("usuarioId"),
-    nome: "Letícia Possídio",
-    tipo: "Advogado",
-    oab: "PE44556",
-    tags: ["cível", "imobiliário", "empresarial"]
-},
-{
-    _id: getProximoId("usuarioId"),
-    nome: "Harvey Specter",
-    tipo: "Advogado",
-    oab: "NY10001",
-    tags: ["corporativo", "contratos", "litígios"]
-},
-{
-    _id: getProximoId("usuarioId"),
-    nome: "Dimsdale De Vil",
-    tipo: "Juiz",
-    comarca: "Recife",
-    email: "dimsdale.devil@tjpe.jus.br",
-    anos_experiencia: 25
-},
-{
-    _id: getProximoId("usuarioId"),
-    nome: "Cléo Dionysio",
-    tipo: "Juiz",
-    comarca: "Olinda",
-    email: "cleo.dionysio@tjpe.jus.br",
-    anos_experiencia: 18
-}   
+        _id: getProximoId("usuarioId"),
+        nome: "Erika Hilton",
+        tipo: "Advogado",
+        oab: "PE11223",
+        tags: ["direitos humanos", "constitucional", "família"]
+    },
+    {
+        _id: getProximoId("usuarioId"),
+        nome: "Letícia Possídio",
+        tipo: "Advogado",
+        oab: "PE44556",
+        tags: ["cívil", "imobiliário", "empresarial"]
+    },
+    {
+        _id: getProximoId("usuarioId"),
+        nome: "Harvey Specter",
+        tipo: "Advogado",
+        oab: "NY10001",
+        tags: ["corporativo", "contratos", "litígios"]
+    },
+    {
+        _id: getProximoId("usuarioId"),
+        nome: "Dimsdale De Vil",
+        tipo: "Juiz",
+        comarca: "Recife",
+        email: "dimsdale.devil@tjpe.jus.br",
+        anos_experiencia: 25
+    },
+    {
+        _id: getProximoId("usuarioId"),
+        nome: "Cléo Dionysio",
+        tipo: "Juiz",
+        comarca: "Olinda",
+        email: "cleo.dionysio@tjpe.jus.br",
+        anos_experiencia: 18
+    },
+    {
+        _id: getProximoId("usuarioId"), 
+        nome: "Napoleão Stalin",
+        tipo: "Juiz",
+        email: "napoleao.stalin@tjpe.jus.br",
+        anos_experiencia: 34
+    },
+    {
+        _id: getProximoId("usuarioId"), 
+        nome: "Arnold Stallone",
+        tipo: "Advogado",
+        email: "badassmf@gmail.com",
+        anos_experiencia: 55
+    },
+    {
+        _id: getProximoId("usuarioId"), 
+        nome: "Higuruma Akutame",
+        tipo: "Advogado",
+        email: "higuruma.akutame@tjpe.jus.br",
+        anos_experiencia: 14,
+        tags: ["direitos humanos", "constitucional", "criminal"]
+    },
+    {
+        _id: getProximoId("usuarioId"), 
+        nome: "Elon Tesla",
+        tipo: "Parte",
+        cpf: "777.666.420-67"
+    },
+    {
+        _id: getProximoId("usuarioId"), 
+        nome: "Pelé Ziko",
+        tipo: "Juiz",
+        email: "pele.ziko@tjpe.jus.br",
+        anos_experiencia: 16
+    },
+    {
+        _id: getProximoId("usuarioId"), 
+        nome: "Toni Estrelak",
+        tipo: "Advogado",
+        oab: "PE30408",
+        email: "toni.estrelak@tjpe.jus.br",
+        anos_experiencia: 22
+    },
+    {
+        _id: getProximoId("usuarioId"), 
+        nome: "Steve Apple",
+        tipo: "Parte",
+        cpf: "037.833.100-67"
+    },
+    {
+        _id: getProximoId("usuarioId"), 
+        nome: "Jair Lula",
+        tipo: "Juiz",
+        comarca: "Brasilia",
+        email: "jair.lula@tjdft.jus.br",
+        anos_experiencia: 30
+    },
+    {
+        _id: getProximoId("usuarioId"),
+        nome: "Lloyd Fronteira",
+        tipo: "Advogado",
+        oab: "PE67576",
+        tags: ["cívil", "imobiliário", "empresarial"]
+    },
+    {
+        _id: getProximoId("usuarioId"),
+        nome: "Harry Jackson",
+        tipo: "Advogado",
+        oab: "PE35467",
+        tags: ["constitucional", "criminal"]
+    },
+    {
+        _id: getProximoId("usuarioId"),
+        nome: "Frei de Nassau",
+        tipo: "Juiz",
+        comarca: "Recife",
+        email: "frei.nassau@tjpe.jus.br",
+        anos_experiencia: 31
+    },
+    {
+        _id: getProximoId("usuarioId"), 
+        nome: "Marco Vencido",
+        tipo: "Parte",
+        cpf: "147.361.420-67"
+    },
+    {
+        _id: getProximoId("usuarioId"), 
+        nome: "Saul Bomhomi",
+        tipo: "Advogado",
+        oab: "PE32428",
+        email: "saul.bomhomi@tjpe.jus.br",
+        anos_experiencia: 32
+    },
+    {
+        _id: getProximoId("usuarioId"),
+        nome: "Mario Luigi",
+        tipo: "Advogado",
+        oab: "PE71417",
+        tags: ["imobiliário", "empresarial", "criminal"]
+    },
+    {
+        _id: getProximoId("usuarioId"),
+        nome: "Saulo Doce",
+        tipo: "Juiz",
+        comarca: "Recife",
+        email: "saulo.doce@tjpe.jus.br",
+        anos_experiencia: 19
+    },
+    {
+        _id: getProximoId("usuarioId"),
+        nome: "Obama Trump",
+        tipo: "Advogado",
+        oab: "PE17107",
+        tags: ["direitos humanos", "constitucional", "empresarial"]
+    },
+    {
+        _id: getProximoId("usuarioId"), 
+        nome: "Michelangelo da Vinci",
+        tipo: "Parte",
+        cpf: "051.913.100-67"
+    },
+    {
+        _id: getProximoId("usuarioId"),
+        nome: "Brites Coelho",
+        tipo: "Juiz",
+        comarca: "Olinda",
+        email: "brites.coelho@tjpe.jus.br",
+        anos_experiencia: 43
+    },
+    {
+        _id: getProximoId("usuarioId"), 
+        nome: "Felix Jimmy",
+        tipo: "Advogado",
+        oab: "PE32678",
+        email: "felix.jimmy@tjpe.jus.br",
+        anos_experiencia: 24
+    },
+    {
+        _id: getProximoId("usuarioId"), 
+        nome: "Jack Pernalta",
+        tipo: "Parte",
+        cpf: "076.763.024-76"
+    }
 ]);
+
+// ============================ PROCESSOS ================================
 
 db.processos.insertMany([
     {
@@ -160,8 +308,37 @@ db.processos.insertMany([
             regime_bens: "Comunhão Parcial",
             possui_filhos_menores: false,
             pensao_pleiteada: 0
-    }}
+    }},
+    {
+        _id: getProximoId("processoId"),
+        numero: "0012345-67.2026.8.17.0001",
+        status: "Em Andamento",
+        data_abertura: new Date("2026-05-10"),
+        valor_causa: 850000,
+        juiz_id: 12,
+        partes: [4,7],
+        advogados: [
+            { id: 9, status: "ativo" },
+            { id: 10, status: "ativo" }
+        ],
+        tags_processo: ["empresarial","urgente"]
+    },
+    {
+        _id: getProximoId("processoId"),
+        numero: "0012345-68.2026.8.17.0001",
+        status: "Em Recurso",
+        data_abertura: new Date("2026-04-20"),
+        valor_causa: 2500000,
+        juiz_id: 13,
+        partes: [5,6],
+        advogados: [
+            { id: 11, status: "ativo" }
+        ],
+        tags_processo: ["contratual","alto valor"]
+    }
 ]);
+
+// ============================ DOCUMENTOS ================================
 
 db.documentos.insertMany([
     {
@@ -205,66 +382,33 @@ db.documentos.insertMany([
         tipo: "Despacho",
         conteudo: "Mantenha-se os autos suspensos aguardando a manifestação do perito engenheiro.",
         confidencial: false
+    },
+    {
+        _id: getProximoId("documentoId"),
+        processo_id: 4,
+        tipo: "Petição Inicial",
+        conteudo: "A autora requer indenização por descumprimento contratual.",
+        confidencial: false
+    },
+    {
+        _id: getProximoId("documentoId"),
+        processo_id: 4,
+        tipo: "Contestação",
+        conteudo: "A parte ré impugna integralmente os pedidos.",
+        confidencial: false
+    },
+    {
+        _id: getProximoId("documentoId"),
+        processo_id: 5,
+        tipo: "Recurso",
+        conteudo: "A parte autora interpõe recurso de apelação.",
+        confidencial: true
+    },
+    {
+        _id: getProximoId("documentoId"),
+        processo_id: 5,
+        tipo: "Acórdão",
+        conteudo: "O tribunal manteve parcialmente a sentença.",
+        confidencial: true
     }
-]);
-
-db.processos.insertMany([
-{
-    _id: getProximoId("processoId"),
-    numero: "0012345-67.2026.8.17.0001",
-    status: "Em Andamento",
-    data_abertura: new Date("2026-05-10"),
-    valor_causa: 850000,
-    juiz_id: 12,
-    partes: [4,7],
-    advogados: [
-        { id: 9, status: "ativo" },
-        { id: 10, status: "ativo" }
-    ],
-    tags_processo: ["empresarial","urgente"]
-},
-{
-    _id: getProximoId("processoId"),
-    numero: "0012345-68.2026.8.17.0001",
-    status: "Em Recurso",
-    data_abertura: new Date("2026-04-20"),
-    valor_causa: 2500000,
-    juiz_id: 13,
-    partes: [5,6],
-    advogados: [
-        { id: 11, status: "ativo" }
-    ],
-    tags_processo: ["contratual","alto valor"]
-}
-]);
-
-db.documentos.insertMany([
-{
-    _id: getProximoId("documentoId"),
-    processo_id: 4,
-    tipo: "Petição Inicial",
-    conteudo: "A autora requer indenização por descumprimento contratual.",
-    confidencial: false
-},
-{
-    _id: getProximoId("documentoId"),
-    processo_id: 4,
-    tipo: "Contestação",
-    conteudo: "A parte ré impugna integralmente os pedidos.",
-    confidencial: false
-},
-{
-    _id: getProximoId("documentoId"),
-    processo_id: 5,
-    tipo: "Recurso",
-    conteudo: "A parte autora interpõe recurso de apelação.",
-    confidencial: true
-},
-{
-    _id: getProximoId("documentoId"),
-    processo_id: 5,
-    tipo: "Acórdão",
-    conteudo: "O tribunal manteve parcialmente a sentença.",
-    confidencial: true
-}
 ]);
