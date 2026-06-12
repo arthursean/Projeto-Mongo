@@ -18,3 +18,21 @@ db.processos.find({
         return this.valor_causa > 100000;
     }
 });
+// Encontra processos cujo regime de bens da partilha seja "Comunhão Parcial"
+db.processos.find({ "detalhes_familia.regime_bens": "Comunhão Parcial" })
+//multiplos 
+db.documentos.find({ 
+    tipo: { $in: ["Petição Inicial", "Contestação"] } 
+})
+// Busca processos que tenham a tag "divórcio" ou "partilha de bens"
+db.processos.aggregate([
+    { $match: { _id: 3 } },
+    {
+        $lookup: {
+            from: "documentos",
+            localField: "_id",
+            foreignField: "processo_id",
+            as: "historico_documentos"
+        }
+    }
+])
