@@ -97,3 +97,13 @@ db.processos.mapReduce(
 // 27. RENAMECOLLECTION
 // Renamecollection. Muda a coleção gerada pelo MapReduce para o nome final
 db.temp_relatorio_status.renameCollection("relatorio_final_status");
+
+
+// Cria um índice de texto no campo 'conteudo' para permitir buscas otimizadas por palavras
+db.documentos.createIndex({ conteudo: "text" });
+
+// Remove o documento de ID 6 (Despacho de suspensão) pois foi revogado
+db.documentos.deleteOne({ _id: 6 });
+
+// Remove todos os documentos de um processo específico que foi anulado
+db.documentos.deleteMany({ processo_id: 2 });

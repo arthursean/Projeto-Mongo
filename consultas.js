@@ -36,3 +36,8 @@ db.processos.aggregate([
         }
     }
 ])
+
+// Busca todos os documentos que contenham a palavra "liminar" em seu conteúdo
+db.documentos.find(
+    { $text: { $search: "liminar" } }
+).pretty();
