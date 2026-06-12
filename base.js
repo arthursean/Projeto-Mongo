@@ -73,7 +73,44 @@ db.usuarios.insertMany([
         tipo: "Advogado",
         oab: "PE99999",
         tags: ["família", "sucessões"]
-    }   
+    },
+    {
+    _id: getProximoId("usuarioId"),
+    nome: "Erika Hilton",
+    tipo: "Advogado",
+    oab: "PE11223",
+    tags: ["direitos humanos", "constitucional", "família"]
+},
+{
+    _id: getProximoId("usuarioId"),
+    nome: "Letícia Possídio",
+    tipo: "Advogado",
+    oab: "PE44556",
+    tags: ["cível", "imobiliário", "empresarial"]
+},
+{
+    _id: getProximoId("usuarioId"),
+    nome: "Harvey Specter",
+    tipo: "Advogado",
+    oab: "NY10001",
+    tags: ["corporativo", "contratos", "litígios"]
+},
+{
+    _id: getProximoId("usuarioId"),
+    nome: "Dimsdale De Vil",
+    tipo: "Juiz",
+    comarca: "Recife",
+    email: "dimsdale.devil@tjpe.jus.br",
+    anos_experiencia: 25
+},
+{
+    _id: getProximoId("usuarioId"),
+    nome: "Cléo Dionysio",
+    tipo: "Juiz",
+    comarca: "Olinda",
+    email: "cleo.dionysio@tjpe.jus.br",
+    anos_experiencia: 18
+}   
 ]);
 
 db.processos.insertMany([
@@ -169,4 +206,65 @@ db.documentos.insertMany([
         conteudo: "Mantenha-se os autos suspensos aguardando a manifestação do perito engenheiro.",
         confidencial: false
     }
+]);
+
+db.processos.insertMany([
+{
+    _id: getProximoId("processoId"),
+    numero: "0012345-67.2026.8.17.0001",
+    status: "Em Andamento",
+    data_abertura: new Date("2026-05-10"),
+    valor_causa: 850000,
+    juiz_id: 12,
+    partes: [4,7],
+    advogados: [
+        { id: 9, status: "ativo" },
+        { id: 10, status: "ativo" }
+    ],
+    tags_processo: ["empresarial","urgente"]
+},
+{
+    _id: getProximoId("processoId"),
+    numero: "0012345-68.2026.8.17.0001",
+    status: "Em Recurso",
+    data_abertura: new Date("2026-04-20"),
+    valor_causa: 2500000,
+    juiz_id: 13,
+    partes: [5,6],
+    advogados: [
+        { id: 11, status: "ativo" }
+    ],
+    tags_processo: ["contratual","alto valor"]
+}
+]);
+
+db.documentos.insertMany([
+{
+    _id: getProximoId("documentoId"),
+    processo_id: 4,
+    tipo: "Petição Inicial",
+    conteudo: "A autora requer indenização por descumprimento contratual.",
+    confidencial: false
+},
+{
+    _id: getProximoId("documentoId"),
+    processo_id: 4,
+    tipo: "Contestação",
+    conteudo: "A parte ré impugna integralmente os pedidos.",
+    confidencial: false
+},
+{
+    _id: getProximoId("documentoId"),
+    processo_id: 5,
+    tipo: "Recurso",
+    conteudo: "A parte autora interpõe recurso de apelação.",
+    confidencial: true
+},
+{
+    _id: getProximoId("documentoId"),
+    processo_id: 5,
+    tipo: "Acórdão",
+    conteudo: "O tribunal manteve parcialmente a sentença.",
+    confidencial: true
+}
 ]);
