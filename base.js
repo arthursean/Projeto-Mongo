@@ -1,5 +1,9 @@
-// select the database (avoids 'use' keyword errors in some JS environments)
+// seleciona o banco de dados de forma compatível com scripts JavaScript,
+// evitando erros que podem ocorrer ao usar o comando "use" fora do shell interativo.
 db = db.getSiblingDB("judiciariodb");
+
+// limpa a database no início da execução
+db.dropDatabase();
 
 // o mongo n tem um sistema próprio de chaves incrementadas(eles utilizam o objectId como forma de identificação padrão), ou seja,
 // é necessária a função e um "documento" para registrar os ids dos documentos dos N tipos
@@ -412,3 +416,6 @@ db.documentos.insertMany([
         confidencial: true
     }
 ]);
+
+// Cria um índice de texto no campo 'conteudo' para permitir buscas otimizadas por palavras
+db.documentos.createIndex({ conteudo: "text" });

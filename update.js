@@ -17,6 +17,27 @@ db.documentos.insertOne({
     confidencial: false
 });
 
+// SAVE moderno: atualiza se já existir; insere se não existir.
+// Neste exemplo, usamos updateOne com upsert para simular o comportamento do antigo save.
+db.documentos.updateOne(
+    {
+        processo_id: 1,
+        tipo: "Certidão"
+    },
+    {
+        $set: {
+            conteudo: "Certidão gerada para demonstrar comportamento semelhante ao save.",
+            confidencial: false
+        },
+        $setOnInsert: {
+            _id: getProximoId("documentoId"),
+            processo_id: 1,
+            tipo: "Certidão"
+        }
+    },
+    { upsert: true }
+);
+
 
 // Aggregate, Match, GTE, Group, Sum, Max e Avg
 /* 
@@ -75,6 +96,27 @@ db.processos.aggregate([
     }
 ]).pretty();
 
+// FUNCTION: classifica o valor da causa usando função JavaScript dentro do aggregate
+db.processos.aggregate([
+    {
+        $project: {
+            _id: 0,
+            numero: 1,
+            valor_causa: 1,
+            classificacao_valor: {
+                $function: {
+                    body: function(valor) {
+                        if (valor >= 1000000) return "Muito alto";
+                        if (valor >= 100000) return "Alto";
+                        return "Baixo";
+                    },
+                    args: ["$valor_causa"],
+                    lang: "js"
+                }
+            }
+        }
+    }
+]);
 
 // Count. conta quantos documentos confidenciais existem no sistema
 db.documentos.countDocuments({ confidencial: true });
@@ -96,11 +138,7 @@ db.processos.mapReduce(
 
 // 27. RENAMECOLLECTION
 // Renamecollection. Muda a coleção gerada pelo MapReduce para o nome final
-db.temp_relatorio_status.renameCollection("relatorio_final_status");
-
-
-// Cria um índice de texto no campo 'conteudo' para permitir buscas otimizadas por palavras
-db.documentos.createIndex({ conteudo: "text" });
+db.temp_relatorio_status.renameCollection("relatorio_final_status", true);
 
 // Remove o documento de ID 6 (Despacho de suspensão) pois foi revogado
 db.documentos.deleteOne({ _id: 6 });
