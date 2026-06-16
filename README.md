@@ -2,6 +2,22 @@
 
 Projeto acadêmico em MongoDB que modela um sistema judiciário simplificado, com usuários, processos e documentos. O objetivo é demonstrar inserção, consulta, atualização, agregação e remoção de dados usando recursos da linguagem do MongoDB.
 
+> **Disciplina**: Banco de Dados (2026.1) - CIN/UFPE
+
+> **Equipe**:
+> 
+> Anne Pereira Collier de Mendonça - apcm
+> 
+> Arthur Sean Cerqueira Campos - ascc2
+> 
+>Arthur Fidney Da Cunha Cavalcante Correia - afccc
+> 
+>Isabela Possídio Amorim - ipa
+> 
+>João Guilherme Lemos Duarte - jgldo
+> 
+>João Luís Gomes Agra - jlga
+
 ## Arquivos
 
 * `base.js`: cria o banco, limpa dados antigos, define contadores de IDs e insere os dados iniciais.
